@@ -1,0 +1,16 @@
+:root {
+  --bg: #0c1016;
+  --surface: #161c24;
+  --fg: #e8edf2;
+  --muted: #8d97a3;
+  --primary: #7ee0ff;
+  --accent: #f0c27a;
+  --border: #2a3340;
+  --font-sans: "Sora", system-ui, sans-serif;
+  --font-display: "Syne", "Sora", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; min-height: 100%; background: var(--bg); color: var(--fg); font-family: var(--font-sans); }
+button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+input, button { font: inherit; }
