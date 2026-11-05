@@ -25,8 +25,8 @@ function Screen() {
   }, [canvas]);
   const face = useMemo(() => {
     const c = document.createElement("canvas");
-    c.width = 64;
-    c.height = 64;
+    c.width = 128;
+    c.height = 128;
     return c;
   }, []);
   const tick = useRef(0);
@@ -50,7 +50,11 @@ function Screen() {
       ctx.fillStyle = "#7ee0ff";
       ctx.font = "500 22px ui-monospace, monospace";
       ctx.fillText(ss, 128, 168);
-      const date = now.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+      const date = now.toLocaleDateString(undefined, {
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+      });
       ctx.fillStyle = "#8d97a3";
       ctx.font = "500 16px ui-monospace, monospace";
       ctx.fillText(date.toUpperCase(), 128, 200);
@@ -61,7 +65,8 @@ function Screen() {
     } else {
       paintFace(face, mood, mouth, tick.current);
       ctx.imageSmoothingEnabled = false;
-      ctx.drawImage(face, 48, 36, 160, 160);
+      // scale 128 -> 192 centered
+      ctx.drawImage(face, 32, 28, 192, 192);
       ctx.strokeStyle = "rgba(126,224,255,0.45)";
       ctx.lineWidth = 3;
       ctx.strokeRect(28, 24, 200, 200);
